@@ -25,14 +25,22 @@ nltk.data.path.append(nltk_data_dir)
 
 # Function to download resources only if missing
 def download_nltk_resources():
-    required_packages = ["punkt", "stopwords", "wordnet"]
-    for package in required_packages:
+    required_packages = {
+        "punkt": "tokenizers/punkt",  # punkt is under tokenizers
+        "stopwords": "corpora/stopwords",  # stopwords is under corpora
+        "wordnet": "corpora/wordnet"  # wordnet is under corpora
+    }
+    
+    # Check and download missing resources
+    for package, package_path in required_packages.items():
         try:
-            nltk.data.find(f"tokenizers/{package}" if package == "punkt" else f"corpora/{package}")
+            nltk.data.find(package_path)
+            print(f"{package} is already downloaded.")
         except LookupError:
+            print(f"{package} not found, downloading...")
             nltk.download(package, download_dir=nltk_data_dir)
 
-# Download only missing resources
+# Call the function to download missing resources
 download_nltk_resources()
 
 # Tokenizer and lemmatizer setup
