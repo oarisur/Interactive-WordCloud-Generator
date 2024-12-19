@@ -1,81 +1,121 @@
 # Interactive Word Cloud Generator
-
-## Description
-This project is an **Interactive Word Cloud Generator** built with **Streamlit** and several **Natural Language Processing (NLP)** techniques. Users can generate visually appealing word clouds from their text data. The app allows for various customizations such as word frequency analysis, stopword filtering, sentiment analysis, and more.
+Welcome to the Interactive Word Cloud Generator! This tool allows you to visualize your text data in a beautiful and customizable word cloud format. You can either upload a text file or paste your text directly to generate a word cloud. The word cloud is highly customizable, allowing you to modify the background color, select the parts of speech to include, highlight specific keywords, and much more. Additionally, you can choose a mask image to shape the word cloud or even draw your own custom mask.
 
 ## Features
-- **Language Detection**: Automatically detects the language of the input text and applies the relevant stopword list.
-- **Word Cloud Customization**: Customize the word cloud with options like background color, font style, and maximum words.
-- **Stopword Filtering**: Exclude common words or custom words from the word cloud.
-- **Parts of Speech Filtering**: Filter words based on their parts of speech (e.g., nouns, adjectives, verbs).
-- **Mask Options**: Create word clouds with a custom shape by uploading an image or drawing on the canvas.
-- **Sentiment Analysis**: Analyzes the sentiment of the input text (positive, negative, neutral).
-- **Keyword Highlighting**: Highlight specific keywords in the word cloud.
+- Text Input:
 
-## Project Setup and Usage Guide
+  - Upload a .txt file or paste your text directly.
+- Customization Options:
 
-### 1. Clone the Repository
-Clone the repository from GitHub:
-```bash
-git clone https://github.com/username/repo_name.git
+  - Choose a background color for the word cloud.
+  - Adjust the size of the canvas for the word cloud.
+  - Specify the maximum number of words in the word cloud.
+  - Add custom stopwords to exclude specific words.
+- Parts of Speech Filter:
 
-### 2. Install Dependencies
-Navigate into the project directory and install the required libraries using the following command:
+  - Filter words by Nouns, Adjectives, Verbs, and Adverbs to refine the word cloud.
+- Keyword Highlighting:
+
+  - Highlight specific keywords in red while keeping others in black.
+- Font Options:
+
+  - Choose a system-installed font to personalize the appearance of your word cloud.
+- Mask Options:
+
+  - Upload an image (e.g., a logo, shape, etc.) to shape the word cloud, or draw your own custom mask.
+- Sentiment Analysis:
+
+  - The sentiment of the input text will be analyzed and categorized as Positive, Negative, or Neutral.
+- Word Frequency Table:
+
+  - Display a table of word frequencies from the input text.
+- Top Phrases (N-grams):
+
+  - View the most common two-word phrases (bigrams) in the text.
+## Installation
+To run the Interactive Word Cloud Generator, follow these steps to set up the project on your local machine:
+
+### 1. Clone the repository
+Clone the repository to your local machine using Git:
+[git clone <repository_url>
+cd <repository_folder>](https://github.com/oarisur/Interactive-WordCloud-Generator.git)
+
+### 2. Set up a Virtual Environment (optional but recommended)
+It is recommended to use a virtual environment to avoid conflicts with other projects. To create and activate a virtual environment, run:
+
+#### For Windows:
+````
+python -m venv venv
+venv\Scripts\activate
+````
+
+#### For macOS/Linux:
+````
+python3 -m venv venv
+source venv/bin/activate
+````
+### 3. Install dependencies
+Install the required dependencies using pip and the provided requirements.txt file:
+````
 pip install -r requirements.txt
+````
+This will install all the necessary packages such as Streamlit, NLTK, WordCloud, and others.
 
-### 3. Run the App
-Once all dependencies are installed, you can run the Streamlit app:
-streamlit run app.py
+### 4. Run the Application
+Once the dependencies are installed, you can run the Interactive Word Cloud Generator application with the following command:
+````
+streamlit run wordcloud_generator.py
+````
+This will open the application in your default web browser. You can now start generating your word clouds!
 
-## Usage
-
+## How to Use
 ### 1. Input Text
-- Upload a `.txt` file or paste your text directly into the provided text area.
-  - **Note**: You can only use one method (either upload a file or paste text).
+You can input text in two ways:
+
+- Upload a Text File: Use the "Upload a text file" button to upload a .txt file.
+- Paste Your Text: Paste your text into the "Or paste your text here" text area.
+  - Note: Only one input method is allowed at a time. You cannot use both simultaneously.
 
 ### 2. Customize the Word Cloud
-- **Background Color**: Use the color picker to change the word cloud's background.
-- **Maximum Words**: Set the maximum number of words to be displayed.
-- **Custom Stopwords**: Exclude unwanted words by entering them as a comma-separated list.
-
+#### Background Color:
+- Choose a background color for your word cloud.
+#### Canvas Size:
+- Adjust the canvas width and canvas height sliders to set the size of your word cloud.
+#### Maximum Words:
+- Set the maximum number of words to display in the word cloud.
+#### Custom Stopwords:
+- Enter additional words (comma-separated) to exclude from the word cloud (e.g., common words like "the", "and", etc.).
 ### 3. Filter by Parts of Speech
-- Choose which parts of speech to include in your word cloud:
-  - Nouns
-  - Adjectives
-  - Verbs
-  - Adverbs
+Select which parts of speech you want to include:
 
+- Nouns
+- Adjectives
+- Verbs
+- Adverbs
 ### 4. Highlight Keywords
-- Enter specific keywords you want to highlight in the word cloud. These keywords will appear in red.
+Enter keywords (comma-separated) that you want to highlight in red.
 
-### 5. Choose a Font
-- Pick a font style for your word cloud from the available options.
+### 5. Font Selection
+Select a font for your word cloud. You can choose from system-installed fonts.
 
-### 6. Add a Mask (Optional)
-- Upload an image to use as a mask, or use the drawing tool to create your own custom shape.
-  - **Note**: You can use either an uploaded mask image or a custom drawing, but not both at the same time.
+### 6. Mask Options
+#### Upload Mask Image:
+- Upload a PNG image to use as a mask. The word cloud will be shaped according to the mask.
+#### Drawing Mode:
+- Alternatively, use the Drawing Tool to create a custom mask. You can choose between different drawing modes (free draw, line, rectangle, etc.).
+### 7. Generate the Word Cloud
+After customizing the settings, click "Generate Word Cloud" to create the word cloud. The generated word cloud will be displayed in the middle column.
 
-### 7. Generate and View Results
-- Click the **"Generate Word Cloud"** button to create the word cloud.
-- View the generated word cloud along with a word frequency table, sentiment analysis of the text, and top phrases.
+### 8. Results and Analysis
+Once the word cloud is generated, the following will be displayed:
 
-### 8. Download the Word Cloud Image
-- If you are satisfied with the word cloud, click the **"Download Word Cloud Image"** button to download the image.
-
-## Example Output
-_Provide a sample word cloud image here (optional)_
-
-
-## Technologies Used
-- **Streamlit**: A Python library used for building the interactive web app.
-- **NLTK**: Natural Language Toolkit used for text preprocessing, tokenization, and part-of-speech tagging.
-- **TextBlob**: A library used for sentiment analysis.
-- **WordCloud**: Python library for generating word clouds.
-- **Pandas**: Used for displaying the word frequency table.
-- **Matplotlib**: Used for visualizing the word cloud.
-
+- Word Cloud: The visualized word cloud based on your settings.
+- Download Image: A button to download the word cloud as a PNG image.
+- Word Frequency Table: A table showing the frequency of the words used in the input text.
+- Sentiment Analysis: The sentiment analysis results, categorized as Positive, Negative, or Neutral.
+- Top Phrases: A list of the most common two-word phrases (bigrams).
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This tool is licensed under the MIT License. You can freely use, modify, and distribute it.
 
-## Contributing
-Feel free to fork the repository and submit pull requests. If you encounter any issues or have suggestions for improvement, open an issue on the GitHub repository.
+## Contributions
+Contributions are welcome! If you encounter any issues or have ideas for improvements, feel free to submit an issue or a pull request.
