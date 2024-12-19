@@ -18,10 +18,22 @@ from nltk import pos_tag
 from langdetect import detect, LangDetectException
 from streamlit_drawable_canvas import st_canvas
 
-# Download necessary NLTK resources
-nltk.download('punkt')
-nltk.download('stopwords')
-nltk.download('wordnet')
+# Define the NLTK data directory
+nltk_data_dir = os.path.join(os.getcwd(), "nltk_data")
+os.makedirs(nltk_data_dir, exist_ok=True)
+nltk.data.path.append(nltk_data_dir)
+
+# Function to download resources only if missing
+def download_nltk_resources():
+    required_packages = ["punkt", "stopwords", "wordnet"]
+    for package in required_packages:
+        try:
+            nltk.data.find(f"tokenizers/{package}" if package == "punkt" else f"corpora/{package}")
+        except LookupError:
+            nltk.download(package, download_dir=nltk_data_dir)
+
+# Download only missing resources
+download_nltk_resources()
 
 # Tokenizer and lemmatizer setup
 lemmatizer = WordNetLemmatizer()
