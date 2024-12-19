@@ -116,6 +116,11 @@ Once the word cloud is generated, the following will be displayed:
 - Top Phrases: A list of the most common two-word phrases (bigrams).
 
 ## Screenshots
+### Homepage
+![home_page](https://github.com/user-attachments/assets/7e27be06-ac13-4947-aa5c-f6e4bf4a2263)
+### Generated Output
+![result1](https://github.com/user-attachments/assets/8d57990d-665d-4f94-99bb-3ccf9201cd03)
+![result2](https://github.com/user-attachments/assets/3af3f0e3-db3c-4b57-95fb-ea4240d96f63)
 
 ## License
 This tool is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
