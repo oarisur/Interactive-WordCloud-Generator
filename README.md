@@ -115,7 +115,7 @@ Once the word cloud is generated, the following will be displayed:
 - Sentiment Analysis: The sentiment analysis results, categorized as Positive, Negative, or Neutral.
 - Top Phrases: A list of the most common two-word phrases (bigrams).
 ## License
-This tool is licensed under the MIT License. You can freely use, modify, and distribute it.
+This tool is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## Contributions
 Contributions are welcome! If you encounter any issues or have ideas for improvements, feel free to submit an issue or a pull request.
