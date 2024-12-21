@@ -236,16 +236,22 @@ with col1:
     keywords_to_highlight = set(map(str.strip, highlighted_keywords.split(','))) if highlighted_keywords else set()
 
     st.subheader("🖋 Font Options")
-    available_fonts = font_manager.findSystemFonts(fontpaths=None, fontext='ttf')
-    font_names = [font_manager.FontProperties(fname=font).get_name() for font in available_fonts]
+
+    # Get fonts from directory
+    fonts_dir = os.path.join(os.getcwd(), "fonts")
+    available_fonts = [
+        font for font in os.listdir(fonts_dir) if font.endswith(".ttf")
+    ]
+
+    font_names = [os.path.splitext(font)[0] for font in available_fonts]
     selected_font_name = st.selectbox("Select font", font_names)
-    font_path = next(
-        (font for font in available_fonts if font_manager.FontProperties(fname=font).get_name() == selected_font_name),
-        None
-    )
-    if font_path is None:
-        st.warning("Selected font is unavailable. Using default font.")
-        font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+
+    if selected_font_name:
+        font_path = os.path.join(fonts_dir, f"{selected_font_name}.ttf")
+    else:
+        st.warning("No font selected. Using default font.")
+        font_path = os.path.join(fonts_dir, "comic.ttf")
+
 
 # Right Column: Mask Options and Drawing Tool
 with col3:
