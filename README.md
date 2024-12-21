@@ -96,7 +96,7 @@ Select which parts of speech you want to include:
 Enter keywords (comma-separated) that you want to highlight in red.
 
 ### 5. Font Selection
-Select a font for your word cloud. You can choose from system-installed fonts.
+Select a font for your word cloud. You can choose from a wide range of pre-installed fonts.
 
 ### 6. Mask Options
 #### Upload Mask Image:
