@@ -252,7 +252,6 @@ with col1:
         st.warning("No font selected. Using default font.")
         font_path = os.path.join(fonts_dir, "comic.ttf")
 
-
 # Right Column: Mask Options and Drawing Tool
 with col3:
     st.subheader("")
